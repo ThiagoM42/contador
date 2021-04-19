@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import Input from './Input';
 import Filter from './Filter';
 import {retornaTotal } from './store/contagem';
