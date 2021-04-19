@@ -74,8 +74,11 @@ const Input = () => {
     }
 
     React.useEffect(()=>{
-        dispatch(retornaTotal())
-    },[dispatch])
+        //MELHORAR ESSA PARTE DO CÓDIGO
+        if(uploadedFilesState){
+            dispatch(retornaTotal())
+        }
+    },[uploadedFilesState, dispatch])
 
     return (
         <>     
