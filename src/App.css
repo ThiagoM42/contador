@@ -1,38 +1,160 @@
-.App {
+*, html {
+  box-sizing: border-box;
+}
+li{
+  list-style:none 
+}
+
+table,
+input,
+label {
+  font-size: 1.2rem;
+  font-family: monospace;
+  margin-bottom: 0.5rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+td {
+  padding: 0.3rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+th {
+  padding-right: 1rem;
+  text-align: left;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+input[type='text'] {
+  text-align: left;
+  display: block;
+  width: 400px;
+}
+
+input[type='number'] {
+  display: block;
+  width: 50px;
+}
+
+thead th{
+  text-align: center;
+  font-size: 15px;
+  padding-bottom: 20px;
+}
+
+h1{  
+  text-align: center;
+}
+
+table{
+  margin:0 auto;
+}
+.td_bolinha{
+  display: block;
+  height: 38px;
+  width: 100%;
+  display: flex;  
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-content: center;
 }
 
-.App-link {
-  color: #61dafb;
+.bolinha{ 
+  align-self: center;
+  width: 13px !important;
+  height: 13px !important;
+  border-radius: 50%;
+  border:2px solid #000;   
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.bolinha.noconfirm{
+  background: rgb(255, 255, 0);
 }
+
+.bolinha.confirm{
+  background: lime;
+}
+/*##################### START POPUP #####################*/
+.popup-content {
+  margin: auto;
+  background: rgb(255, 255, 255);
+  width: 50%;
+  padding: 5px;
+}
+.popup-arrow {
+  color: rgb(255, 255, 255);
+}
+[role='tooltip'].popup-content {
+  width: 200px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+}
+
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+[data-popup='tooltip'].popup-overlay {
+  background: transparent;
+}
+
+/*#################################*/
+
+.modal {
+  font-size: 20px;
+  width: 450px;
+  background-color: yellow;
+  position: relative;
+}
+
+.modal>.close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+  background-color: #fff;
+}
+
+.close {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: 0 0;
+  border: none;
+  color: #000;
+  color: var(--ifm-color-black);
+  cursor: pointer;
+  float: right;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-weight: var(--ifm-font-weight-bold);
+  line-height: 1;
+  opacity: .5;
+  outline: 0;
+  padding: 1rem;
+}
+
+.modal>.header {
+  width: 100%;
+  border-bottom: 1px solid grey;
+  font-size: 18px;
+  text-align: center;
+  padding: 5px;
+}
+
+.modal>.content {
+  width: 100%;
+  padding: 15px 8px;
+}
+
+.modal>.actions {
+  margin: auto;
+  width: 100%;
+  padding: 10px 5px;
+  text-align: center;
+}
+
+div>button{
+  margin-left: 8px;
+}
+/*##################### END POPUP #####################*/

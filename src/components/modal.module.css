@@ -1,0 +1,17 @@
+.modal{
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    width: 450px;
+    height: 350px;
+    top: 165px;
+    left: 385px;    
+    background: #00a152;
+    overflow-y: scroll;
+    color: aliceblue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+.modal ul{
+    margin-top:40px;
+}
