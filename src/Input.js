@@ -75,7 +75,7 @@ const Input = () => {
 
     React.useEffect(()=>{
         dispatch(retornaTotal())
-    },[uploadedFilesState])
+    },[dispatch])
 
     return (
         <>     
