@@ -66,7 +66,7 @@ const Filter = () => {
   }
 
   return (
-    <div>
+    <div className="noPrint">
       <div style={{display:"flex"}}>
       <label>Nome:</label>
         <input
@@ -92,8 +92,7 @@ const Filter = () => {
           <label key={value}>
             <input
               type="checkbox"
-              value={value}
-              //checked={handleChecked(value)}
+              value={value}              
               onChange={handleChangeStatus}
             />
             {value}

@@ -18,6 +18,9 @@ export const DropContainer = styled.div.attrs({
 
     ${props => props.isDragActive && dragActive}
     ${props => props.isDragReject && dragReject}
+
+    @media print{display: none}
+            
 `;
 
 const messageColors = {

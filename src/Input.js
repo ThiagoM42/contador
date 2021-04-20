@@ -82,18 +82,18 @@ const Input = () => {
 
     return (
         <>     
-            <Upload onUpload={handleUpload}/>
+            <Upload className="noPrint" onUpload={handleUpload}/>
             {!!uploadedFilesState.length &&(
-                <FileList files={uploadedFilesState}/>
+                <FileList className="noPrint" files={uploadedFilesState}/>
             )}            
             <table>
                 <thead>
                 <tr>
-                    <th>Status</th>
+                    <th className="noPrint">Status</th>
                     <th>Nome</th>
                     <th>Qtd</th>
-                    <th>Confirmado?</th>
-                    <th>Exluir?</th>
+                    <th className="noPrint">Confirmado?</th>
+                    <th className="noPrint">Exluir?</th>
                 </tr>
                 </thead>
                 <tbody>

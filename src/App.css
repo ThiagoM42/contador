@@ -93,6 +93,19 @@ table{
   background: transparent;
 }
 
+@media print{
+  .noPrint{
+    display: none;
+  }
+  input{   
+    color:#000;
+    border: none !important;
+    outline: none;    
+  }
+  table{
+    margin-top: 100px;
+  }
+}
 /*#################################*/
 
 .modal {

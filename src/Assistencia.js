@@ -15,7 +15,10 @@ const Assistencia = ({dados}) => {
     } 
 
     function handleOnBlurNome(){ 
-        dispatch(changeDataName({nome, id}))
+        //verificação para ter apenas 1 setTimeout
+        setTimeout(()=>{
+            dispatch(changeDataName({nome, id}))
+          },6000)        
     }
     
     function handleChangeQtd({target}){
@@ -37,12 +40,11 @@ const Assistencia = ({dados}) => {
 
     return (
         <>   
-        <td className={"td_bolinha"}>
+        <td className={"td_bolinha noPrint"}>
             <div className={status==="Não"?"bolinha noconfirm":"bolinha confirm"}></div>
         </td>    
         <td className={status==="Não"?"noconfirm":"confirm"}>
-            <input 
-                
+            <input                               
                 name={id} 
                 value={nome} 
                 type="text"
@@ -51,7 +53,7 @@ const Assistencia = ({dados}) => {
             />
         </td>        
         <td>
-            <input
+            <input                
                 name={id}
                 value={qtd}
                 type="number"
@@ -61,8 +63,8 @@ const Assistencia = ({dados}) => {
             />
         </td>
 
-        <td><button onClick={()=>handleChangeStatus(status)}>{status}</button></td>   
-        <td><button onClick={()=>handleClickExcluir(id)}>Excluir</button></td>   
+        <td className="noPrint"><button onClick={()=>handleChangeStatus(status)}>{status}</button></td>   
+        <td className="noPrint"><button onClick={()=>handleClickExcluir(id)}>Excluir</button></td>   
         </>
     )
 }
