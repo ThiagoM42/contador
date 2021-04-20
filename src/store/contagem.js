@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import getLocalStorage from '../helper/getLocalStorage';
 import sanitizeData from '../helper/sanitizeData';
 import removeDuplicator from '../helper/removeDuplicator';
+import orderAsc from '../helper/orderAsc';
 
 const slice = createSlice({
   name: 'contagem',
@@ -17,8 +18,9 @@ const slice = createSlice({
     addLocalstorage(state, action){
       let dadosWithsanitizeData = (sanitizeData(action.payload.dados))
       dadosWithsanitizeData = removeDuplicator(dadosWithsanitizeData)
-      let dadosJOin = [...getLocalStorage('dados'), ...dadosWithsanitizeData];
-      window.localStorage.setItem("dados", JSON.stringify(dadosJOin));
+      let dadosJoin = [...getLocalStorage('dados'), ...dadosWithsanitizeData];
+      dadosJoin = orderAsc(dadosJoin)
+      window.localStorage.setItem("dados", JSON.stringify(dadosJoin));
       state.dadosObj = getLocalStorage('dados')
     },
     changeFilters(state, action) {   
@@ -26,8 +28,8 @@ const slice = createSlice({
     },
     changeDataName(state, action){    
       let indice = state.dadosObj.map(d=>d.id).indexOf(action.payload.id)
-      state.dadosObj[indice].nome = action.payload.nome 
-      window.localStorage.setItem("dados", JSON.stringify(state.dadosObj));      
+      state.dadosObj[indice].nome = action.payload.nome       
+      window.localStorage.setItem("dados", JSON.stringify(orderAsc(state.dadosObj)));      
     },
     changeDataQtd(state, action){        
       let indice = state.dadosObj.map(d=>d.id).indexOf(action.payload.id)      
@@ -38,6 +40,7 @@ const slice = createSlice({
     changeDataStatus(state, action){ 
       let indice = state.dadosObj.map(d=>d.id).indexOf(action.payload.id)
       state.dadosObj[indice].status = action.payload.value
+      window.localStorage.setItem("dados", JSON.stringify(state.dadosObj));  
     },
     retornaTotal(state){
       state.total = state.dadosObj.reduce((a, b)=>(+b.qtd +a),0)

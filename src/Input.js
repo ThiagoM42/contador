@@ -68,7 +68,7 @@ const Input = () => {
                     })
                 }
             })
-                    
+        //aqui add no local storage;           
         dispatch(addLocalstorage({ dados:dadosApi.data.participantes}));
         setUploadedFilesState([]);
     }

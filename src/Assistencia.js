@@ -14,7 +14,7 @@ const Assistencia = ({dados}) => {
         setNome(target.value)
     } 
 
-    function handleOnBlurNome({target}){ 
+    function handleOnBlurNome(){ 
         dispatch(changeDataName({nome, id}))
     }
     

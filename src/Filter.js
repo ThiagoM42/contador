@@ -43,8 +43,7 @@ const Filter = () => {
   }
 
   function handleClickTodos() {
-    const new_dados =  dados
-                  .filter(d=>d.qtd!==0)                
+    const new_dados =  dados                        
                   .map(d=>(d.nome).padEnd(30, ".")+"   qtd:"+d.qtd) 
     const total =  dados.reduce((a,b)=>a+(parseInt(b.qtd)),0)          
     new_dados.push("*Total: "+total+"*")
