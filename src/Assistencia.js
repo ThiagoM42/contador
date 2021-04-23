@@ -15,10 +15,7 @@ const Assistencia = ({dados}) => {
     } 
 
     function handleOnBlurNome(){ 
-        //verificação para ter apenas 1 setTimeout
-        setTimeout(()=>{
-            dispatch(changeDataName({nome, id}))
-          },6000)        
+        dispatch(changeDataName({nome, id}))     
     }
     
     function handleChangeQtd({target}){
