@@ -34,7 +34,7 @@ const Assistencia = ({dados}) => {
         dispatch(dataRemove({id})) 
         dispatch(retornaTotal())      
     }     
-
+    
     return (
         <>   
         <td className={"td_bolinha noPrint"}>

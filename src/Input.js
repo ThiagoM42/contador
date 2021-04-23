@@ -22,11 +22,11 @@ const filterDados = ({ contagem }) => {
     return dadosObj
       .filter(filterStatus(filters.status))
       .filter(filterNomes(filters.nome))
-      .sort(function(a, b){
-        return (a.nome.trim().toLowerCase() > b.nome.trim().toLowerCase())?1
-        :((b.nome.trim().toLowerCase() > a.nome.trim().toLowerCase())?-1
-        :0);
-      })
+    //   .sort(function(a, b){
+    //     return (a.nome.trim().toLowerCase() > b.nome.trim().toLowerCase())?1
+    //     :((b.nome.trim().toLowerCase() > a.nome.trim().toLowerCase())?-1
+    //     :0);
+    //   })
   };
 
 const Input = () => {    
