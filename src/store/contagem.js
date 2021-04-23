@@ -21,7 +21,7 @@ const slice = createSlice({
       let dadosJoin = [...getLocalStorage('dados'), ...dadosWithsanitizeData];
       dadosJoin = orderAsc(dadosJoin)
       window.localStorage.setItem("dados", JSON.stringify(dadosJoin));
-      state.dadosObj = getLocalStorage('dados')
+      state.dadosObj = setTimeout(getLocalStorage('dados'), 6000)
     },
     changeFilters(state, action) {   
       state.filters[action.payload.name] = action.payload.value;
