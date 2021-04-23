@@ -21,7 +21,7 @@ const slice = createSlice({
       let dadosJoin = [...getLocalStorage('dados'), ...dadosWithsanitizeData];
       dadosJoin = orderAsc(dadosJoin)
       window.localStorage.setItem("dados", JSON.stringify(dadosJoin));
-      state.dadosObj = setTimeout(getLocalStorage('dados'), 6000)
+      state.dadosObj =getLocalStorage('dados');
     },
     changeFilters(state, action) {   
       state.filters[action.payload.name] = action.payload.value;
@@ -29,7 +29,11 @@ const slice = createSlice({
     changeDataName(state, action){    
       let indice = state.dadosObj.map(d=>d.id).indexOf(action.payload.id)
       state.dadosObj[indice].nome = action.payload.nome       
-      window.localStorage.setItem("dados", JSON.stringify(orderAsc(state.dadosObj)));      
+      window.localStorage.setItem("dados", JSON.stringify(state.dadosObj));      
+      setTimeout( 
+        window.localStorage.setItem("dados", JSON.stringify(orderAsc(state.dadosObj))),
+        6000
+      )
     },
     changeDataQtd(state, action){        
       let indice = state.dadosObj.map(d=>d.id).indexOf(action.payload.id)      
