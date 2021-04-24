@@ -1,5 +1,7 @@
 import React from 'react';
 import { useDispatch} from 'react-redux';
+import {BsTrash} from 'react-icons/bs';
+import {MdDone, MdDoneAll} from 'react-icons/md';
 import {changeDataName, changeDataQtd, changeDataStatus, dataRemove, retornaTotal } from './store/contagem';
 
 const Assistencia = ({dados}) => {    
@@ -30,9 +32,12 @@ const Assistencia = ({dados}) => {
         dispatch(changeDataStatus({value, id}))       
     } 
 
-    function handleClickExcluir(id){      
-        dispatch(dataRemove({id})) 
-        dispatch(retornaTotal())      
+    function handleClickExcluir(id){ 
+        const confirm = window.confirm("Tem certeza que deseja excluir?");
+        if(confirm){
+            dispatch(dataRemove({id})) 
+            dispatch(retornaTotal())      
+        }
     }     
     
     return (
@@ -60,8 +65,9 @@ const Assistencia = ({dados}) => {
             />
         </td>
 
-        <td className="noPrint"><button onClick={()=>handleChangeStatus(status)}>{status}</button></td>   
-        <td className="noPrint"><button onClick={()=>handleClickExcluir(id)}>Excluir</button></td>   
+        <td className="noPrint"><button onClick={()=>handleChangeStatus(status)}>{status==="Sim"?<MdDoneAll size={18} style={{cursor:'pointer'}}/>:<MdDone size={18} style={{cursor:'pointer'}}/>}</button></td>   
+        <BsTrash style={{paddingTop:4, cursor:'pointer'}} size={22} onClick={()=>handleClickExcluir(id)}/>
+        {/* <td className="noPrint"><button onClick={()=>handleClickExcluir(id)}>Excluir</button></td>    */}
         </>
     )
 }

@@ -30,6 +30,7 @@ const messageColors = {
 
 }
 export const UploadMessage = styled.p`
+    font-size:0.9rem;
     display:flex;
     color:${props => messageColors[props.type || 'default']};
     /* justify-content:center;

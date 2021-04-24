@@ -1,8 +1,9 @@
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import Input from './Input';
-import Filter from './Filter';
+import Filter from './components/Filter/Filter';
 import {retornaTotal } from './store/contagem';
+import {Wrapper} from './styles.js';
 
 const Contagem = () => {  
   const {dadosObj, total} = useSelector(({contagem})=>contagem) 
@@ -13,12 +14,14 @@ const Contagem = () => {
   },[dispatch])
   
   return (    
-    <>
-
-      <h1 className="total">Qtd:{total} | Conexões:{dadosObj.length}</h1>
-      <Filter />  
-      <Input />
-    </>
+    <div>
+      {/* <h1 style={{position:'fixed', left:0}}>Qtd:{total} | Conexões:{dadosObj.length}</h1> */}
+      <h1>Qtd:{total} | Conexões:{dadosObj.length}</h1>
+      <Wrapper>
+        <Filter />  
+        <Input />
+      </Wrapper>
+    </div>
   );
 };
 

@@ -1,52 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 *, html {
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
+
 li{
   list-style:none 
-}
-
-table,
-input,
-label {
-  font-size: 1.2rem;
-  font-family: monospace;
-  margin-bottom: 0.5rem;
-  text-align: center;
-}
-
-td {
-  padding: 0.3rem;
-}
-
-th {
-  padding-right: 1rem;
-  text-align: left;
-}
-
-input[type='text'] {
-  text-align: left;
-  display: block;
-  width: 400px;
-}
-
-input[type='number'] {
-  display: block;
-  width: 50px;
-}
-
-thead th{
-  text-align: center;
-  font-size: 15px;
-  padding-bottom: 20px;
 }
 
 h1{  
   text-align: center;
 }
 
-table{
-  margin:0 auto;
-}
 .td_bolinha{
   display: block;
   height: 38px;
@@ -167,7 +133,4 @@ table{
   text-align: center;
 }
 
-div>button{
-  margin-left: 8px;
-}
 /*##################### END POPUP #####################*/

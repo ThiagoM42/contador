@@ -1,12 +1,7 @@
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {addLocalstorage, retornaTotal} from './store/contagem';
 import Assistencia from './Assistencia';
-import Upload from './components/Upload';
-import FileList from './components/FileList';
-import api from './services/api';
-import {v4 } from 'uuid';
-import filesize from 'filesize';
+import {Container} from './styles';
 
 //lembrar que o 1° parametro é filters.status o 2° parametro 
 //é o data oq tah chamando
@@ -30,62 +25,10 @@ const filterDados = ({ contagem }) => {
   };
 
 const Input = () => {    
-    const data = useSelector(filterDados);
-    const [uploadedFilesState, setUploadedFilesState] = React.useState({})
-    const dispatch = useDispatch();
-
-    const handleUpload = files =>{        
-        const uploadedFiles = files.map(
-            file=>({
-                file,
-                id:v4(),
-                name:file.name,
-                readableSize:filesize(file.size),
-                preview: URL.createObjectURL(file),
-                progress:0,
-                uploaded:false,
-                error:false,                 
-            })
-        )
-        setUploadedFilesState([...uploadedFiles])        
-        uploadedFiles.forEach(e=>processUpload(e))
-    }
-
-    const updateFile = (id, data)=>{
-        setUploadedFilesState(uploadedFilesState=>uploadedFilesState.map(
-          uploadedFile=>id===uploadedFile.id?{...uploadedFile, ...data}:uploadedFile 
-        ))                        
-    }
-
-    const processUpload = async (uploadedFile) =>{
-        const data =  new FormData();
-        data.append('file', uploadedFile.file, uploadedFile.name);
-        const dadosApi = await api.post('post', data,{
-                onUploadProgress:e=>{
-                    const progress = parseInt(Math.round((e.loaded*100)/e.total));
-                    updateFile(uploadedFile.id, {
-                        progress
-                    })
-                }
-            })
-        //aqui add no local storage;           
-        dispatch(addLocalstorage({ dados:dadosApi.data.participantes}));
-        setUploadedFilesState([]);
-    }
-
-    React.useEffect(()=>{
-        //MELHORAR ESSA PARTE DO CÓDIGO
-        if(uploadedFilesState){
-            dispatch(retornaTotal())
-        }
-    },[uploadedFilesState, dispatch])
+    const data = useSelector(filterDados);   
 
     return (
-        <>     
-            <Upload className="noPrint" onUpload={handleUpload}/>
-            {!!uploadedFilesState.length &&(
-                <FileList className="noPrint" files={uploadedFilesState}/>
-            )}            
+        <Container>               
             <table>
                 <thead>
                 <tr>
@@ -104,7 +47,7 @@ const Input = () => {
                 ))}
                 </tbody>
             </table>                        
-        </>
+        </Container>
     )
 }
 
