@@ -67,7 +67,6 @@ const Assistencia = ({dados}) => {
 
         <td className="noPrint"><button onClick={()=>handleChangeStatus(status)}>{status==="Sim"?<MdDoneAll size={18} style={{cursor:'pointer'}}/>:<MdDone size={18} style={{cursor:'pointer'}}/>}</button></td>   
         <BsTrash style={{paddingTop:4, cursor:'pointer'}} size={22} onClick={()=>handleClickExcluir(id)}/>
-        {/* <td className="noPrint"><button onClick={()=>handleClickExcluir(id)}>Excluir</button></td>    */}
         </>
     )
 }
