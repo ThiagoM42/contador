@@ -5,7 +5,8 @@ export const Container = styled.div`
     display:grid;
     grid-template-rows: auto;    
     row-gap:40px;
-    height:100px;    
+    height:350px;    
+    padding:6px;
     input[type='text'] {
         width: 100%;
         height:1.8rem;

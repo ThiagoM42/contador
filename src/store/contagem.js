@@ -18,9 +18,8 @@ const slice = createSlice({
     addLocalstorage(state, action){
       let dadosWithsanitizeData = (sanitizeData(action.payload.dados))
       dadosWithsanitizeData = removeDuplicator(dadosWithsanitizeData)
-      let dadosJoin = [...getLocalStorage('dados'), ...dadosWithsanitizeData];
-      dadosJoin = orderAsc(dadosJoin)
-      window.localStorage.setItem("dados", JSON.stringify(dadosJoin));
+      let dadosJoin = [...getLocalStorage('dados'), ...dadosWithsanitizeData];      
+      window.localStorage.setItem("dados", JSON.stringify(orderAsc(dadosJoin)));
       state.dadosObj =getLocalStorage('dados');
     },
     changeFilters(state, action) {   
@@ -50,7 +49,7 @@ const slice = createSlice({
       state.total = state.dadosObj.reduce((a, b)=>(+b.qtd +a),0)
     },     
     dataCreate(state){
-      state.dadosObj.push({id:Math.floor(Math.random()*100000), nome:"0-Adicionado", qtd:0, status:"Não"})
+      state.dadosObj.unshift({id:Math.floor(Math.random()*1000000), nome:"", qtd:0, status:"Não"})
     },
     dataRemove(state, action){      
       let indice = state.dadosObj.map(d=>d.id).indexOf(action.payload.id)   
