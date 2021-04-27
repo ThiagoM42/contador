@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
     max-width:1100px;
     /* background-color:red; */
     margin:0 auto;
-    margin-top:80px;
+    margin-top:20px;
     display:grid;
     grid-template-columns:1fr 3fr;
 `;
@@ -17,7 +17,15 @@ export const Container =styled.div`
         
 
         & input[type=text]{
-            width:18rem;            
+            width:20rem; 
+            border:none;
+            border-bottom:1px solid #CCC;   
+            font-weight:400;               
+            font-size:1.25rem;
+
+            & :focus, :hover{
+                border:none!important;
+            }
         }
 
         & input[type=number]{

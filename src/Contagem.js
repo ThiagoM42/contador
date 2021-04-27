@@ -16,7 +16,7 @@ const Contagem = () => {
   return (    
     <div>
       {/* <h1 style={{position:'fixed', left:0}}>Qtd:{total} | Conexões:{dadosObj.length}</h1> */}
-      <h1>Qtd:{total} | Conexões:{dadosObj.length}</h1>
+      <h1 className="p-5">Qtd:{total} | Conexões:{dadosObj.length}</h1>
       <Wrapper>
         <Filter />  
         <Input />

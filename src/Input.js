@@ -7,8 +7,7 @@ import {dataCreate} from './store/contagem';
 import { v4 as uuidv4 } from 'uuid';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 
-// import Modal from './components/Modal';
-import {Modal, Button, ListGroup} from 'react-bootstrap';
+import {Modal, Button, ListGroup, Table} from 'react-bootstrap';
 
 //lembrar que o 1° parametro é filters.status o 2° parametro 
 //é o data oq tah chamando
@@ -84,7 +83,7 @@ const Input = () => {
         <Container> 
             <div style={{display:'flex', justifyContent: 'space-between', marginLeft:'2.4rem', paddingBottom:'1.4rem'}}>
                     <MdAdd style={{cursor:'pointer'}} size={24} onClick={handleClickAdd}/>
-                <div style={{marginRight:'16rem'}}>
+                <div >
                     <MdDone style={{cursor:'pointer'}} size={24} onClick={handleClickNaoConfirmados}/>
                     <MdDoneAll style={{cursor:'pointer'}} size={24} onClick={handleClickConfirmados}/>
                     <MdList style={{cursor:'pointer'}} size={24} onClick={handleClickTodos}/>
@@ -117,7 +116,7 @@ const Input = () => {
             </Modal>
 
             {!!data.length &&
-                <table>                
+                <Table>                
                     <thead  style={{marginBottom:'3rem'}}>
                             <tr>                                
                                 <th>Nome</th>
@@ -133,7 +132,7 @@ const Input = () => {
                         </tr>                    
                     ))}
                     </tbody>
-                </table>                        
+                </Table>                        
             }
         </Container>
     )

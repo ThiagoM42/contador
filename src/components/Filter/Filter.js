@@ -8,6 +8,8 @@ import filesize from 'filesize';
 import Upload from '../Upload';
 import FileList from '../FileList';
 
+import {Card} from 'react-bootstrap';
+
 const Filter = () => {
   const status = useSelector(selectUniqueStatus);  
   const [search, setSearch] = React.useState('');
@@ -86,37 +88,44 @@ React.useEffect(()=>{
 
   return (
     <Container>
+      <Card>
+        <Card.Header>Upload</Card.Header>
+          <Card.Body>
+            <Upload className="noPrint mx-0 p-0" onUpload={handleUpload}/>
+            {!!uploadedFilesState.length &&(
+                <FileList className="noPrint" files={uploadedFilesState}/>
+            )}        
+          </Card.Body>
+      </Card>
+      <Card>
+        <Card.Header>Filtro</Card.Header>
+          <Card.Body>
+            <div className="mb-3"> 
+              <label style={{marginBottom:5, display:'block'}}>Pesquisar por nome:</label>     
+              <input
+                type="text"
+                value={search}
+                onChange={({ target }) => setSearch(target.value)}
+                placeholder="Pesquisar por nome"
+              />  
+            </div>  
 
-      <Upload className="noPrint" onUpload={handleUpload}/>
-      {!!uploadedFilesState.length &&(
-          <FileList className="noPrint" files={uploadedFilesState}/>
-      )}        
-
-      <div> 
-        <label style={{marginBottom:5, display:'block'}}>Pesquisar por nome:</label>     
-        <input
-          type="text"
-          value={search}
-          onChange={({ target }) => setSearch(target.value)}
-          placeholder="Pesquisar por nome"
-        />  
-      </div>  
-
-      
-      <div>
-        <label>Confirmados:</label>
-        {status.map((value) => (
-          <label key={value}>
-            <input
-              type="checkbox"
-              value={value}              
-              onChange={handleChangeStatus}
-            />
-            {value}
-          </label>
-        ))}        
-      </div>  
-
+            
+            <div className="mt-3">
+              <label>Confirmados:</label>
+              {status.map((value) => (
+                <label key={value}>
+                  <input
+                    type="checkbox"
+                    value={value}              
+                    onChange={handleChangeStatus}
+                  />
+                  {value}
+                </label>
+              ))}        
+            </div>  
+          </Card.Body>
+      </Card>
     </Container>
   );
 };
