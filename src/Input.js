@@ -31,13 +31,12 @@ const filterDados = ({ contagem }) => {
     //   })
   };
 
-const Input = () => {    
+const Input = () => {        
     const data = useSelector(filterDados);   
     const dados = useSelector(({contagem})=>contagem.dadosObj)
     const [modal, setModal] = React.useState({"dados":dados.map(d=>d.nome)});
     const [show, setShow] = React.useState(false);
-    const handleClose = () => setShow(false);
-
+    const handleClose = () => setShow(false);    
     const dispatch = useDispatch();
 
     //##################################################################
@@ -97,6 +96,7 @@ const Input = () => {
                     <Modal.Title>{modal && modal.title}</Modal.Title>
                 </Modal.Header>        
                     <Modal.Body>
+                            {!modal.dados.length && <p>Nenhum dado</p>}
                             <ListGroup variant="flush">
                                 {modal && modal.dados.map((value)=>(
                                     <ListGroup.Item  key={uuidv4()}>{value}</ListGroup.Item>
@@ -116,24 +116,25 @@ const Input = () => {
                 </Modal.Footer>
             </Modal>
 
-            <table>
-                <thead  style={{marginBottom:'3rem'}}>
-                <tr>
-                    <th className="noPrint">Status</th>
-                    <th>Nome</th>
-                    <th>Qtd</th>
-                    <th className="noPrint">Confirmado?</th>
-                    <th className="noPrint">Exluir?</th>
-                </tr>
-                </thead>
-                <tbody>
-                {data.map((value) => (            
-                    <tr key={value.id}>
-                        <Assistencia dados={{...value}}/>
-                    </tr>                    
-                ))}
-                </tbody>
-            </table>                        
+            {!!data.length &&
+                <table>                
+                    <thead  style={{marginBottom:'3rem'}}>
+                            <tr>                                
+                                <th>Nome</th>
+                                <th>Qtd</th>
+                                <th className="noPrint">Confirmado?</th>
+                                <th className="noPrint">Exluir?</th>
+                            </tr>
+                        </thead>
+                    <tbody>
+                    {data.map((value) => (            
+                        <tr key={value.id}>
+                            <Assistencia dados={{...value}}/>
+                        </tr>                    
+                    ))}
+                    </tbody>
+                </table>                        
+            }
         </Container>
     )
 }

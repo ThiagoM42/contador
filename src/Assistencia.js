@@ -41,10 +41,7 @@ const Assistencia = ({dados}) => {
     }     
     
     return (
-        <>   
-        <td className={"td_bolinha noPrint"}>
-            <div className={status==="Não"?"bolinha noconfirm":"bolinha confirm"}></div>
-        </td>    
+        <>     
         <td className={status==="Não"?"noconfirm":"confirm"}>
             <input                               
                 name={id} 
