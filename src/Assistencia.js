@@ -50,7 +50,8 @@ const Assistencia = ({dados}) => {
                 }
             </Button></td>   
         <td className={status==="Não"?"noconfirm":"confirm"}>
-            <input                               
+            <input 
+                className="py-3"                              
                 name={id} 
                 value={nome} 
                 type="text"
