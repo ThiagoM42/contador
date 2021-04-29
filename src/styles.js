@@ -22,6 +22,7 @@ export const Container =styled.div`
             border-bottom:1px solid #CCC;   
             font-weight:400;               
             font-size:1.25rem;
+            outline:none;
 
             & :focus, :hover{
                 border:none!important;
