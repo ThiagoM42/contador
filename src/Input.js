@@ -91,15 +91,15 @@ const Input = () => {
         <Container> 
             <div style={{display:'flex', justifyContent: 'space-between', marginLeft:'2.4rem', paddingBottom:'1.4rem'}}>
                     <div>
-                        <MdAdd style={{cursor:'pointer'}} size={24} onClick={handleClickAdd}/>
+                        <MdAdd style={{cursor:'pointer'}} size={24} onClick={handleClickAdd} title="Add participante"/>
                         {!!data.length && 
-                            <MdClear style={{cursor:'pointer'}} size={23} onClick={handleClickRemoveAll}/>
+                            <MdClear style={{cursor:'pointer'}} size={23} onClick={handleClickRemoveAll} title="Excluir todos"/>
                         }
                     </div>
                 <div >
-                    <MdDone style={{cursor:'pointer'}} size={24} onClick={handleClickNaoConfirmados}/>
-                    <MdDoneAll style={{cursor:'pointer'}} size={24} onClick={handleClickConfirmados}/>
-                    <MdList style={{cursor:'pointer'}} size={24} onClick={handleClickTodos}/>
+                    <MdDone style={{cursor:'pointer'}} size={24} onClick={handleClickNaoConfirmados} title="Lista de não confirmados"/>
+                    <MdDoneAll style={{cursor:'pointer'}} size={24} onClick={handleClickConfirmados} title="Lista  de confirmados"/>
+                    <MdList style={{cursor:'pointer'}} size={24} onClick={handleClickTodos} title="Lista de todos"/>
                 </div>
             </div>              
 
@@ -133,9 +133,9 @@ const Input = () => {
                 <Table>                
                     <thead  style={{marginBottom:'3rem'}}>
                             <tr>                                
+                                <th className="noPrint">Confirmado?</th>
                                 <th>Nome</th>
                                 <th>Qtd</th>
-                                <th className="noPrint">Confirmado?</th>
                                 <th className="noPrint">Exluir?</th>
                             </tr>
                         </thead>

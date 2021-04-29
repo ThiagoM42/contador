@@ -17,11 +17,11 @@ export const Container =styled.div`
         
 
         & input[type=text]{
-            width:20rem; 
+            width:100%; 
             border:none;
             border-bottom:1px solid #CCC;   
             font-weight:400;               
-            font-size:1.25rem;
+            font-size:1rem;
             outline:none;
 
             & :focus, :hover{
@@ -43,5 +43,4 @@ export const Container =styled.div`
     }
 `;
 
-//import {MdAdd, MdDone, MdDoneAll, MdList } from 'react-icons/md';
 

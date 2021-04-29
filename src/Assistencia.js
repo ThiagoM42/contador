@@ -3,6 +3,7 @@ import { useDispatch} from 'react-redux';
 import {BsTrash} from 'react-icons/bs';
 import {MdDone, MdDoneAll} from 'react-icons/md';
 import {changeDataName, changeDataQtd, changeDataStatus, dataRemove, retornaTotal } from './store/contagem';
+import {Button} from 'react-bootstrap';
 
 const Assistencia = ({dados}) => {    
     const id = dados.id
@@ -42,6 +43,12 @@ const Assistencia = ({dados}) => {
     
     return (
         <>     
+        <td className="noPrint">
+            <Button className="p-1 px-2" variant="outline-dark" onClick={()=>handleChangeStatus(status)}>{
+                status==="Sim"?<MdDoneAll size={19} style={{cursor:'pointer'}} title="Confirmado"/>:
+                <MdDone size={19} style={{cursor:'pointer'}} title="Não confirmado"/>
+                }
+            </Button></td>   
         <td className={status==="Não"?"noconfirm":"confirm"}>
             <input                               
                 name={id} 
@@ -62,7 +69,6 @@ const Assistencia = ({dados}) => {
             />
         </td>
 
-        <td className="noPrint"><button onClick={()=>handleChangeStatus(status)}>{status==="Sim"?<MdDoneAll size={18} style={{cursor:'pointer'}}/>:<MdDone size={18} style={{cursor:'pointer'}}/>}</button></td>   
         <td><BsTrash style={{ cursor:'pointer'}} size={18} onClick={()=>handleClickExcluir(id)}/></td>
         </>
     )
