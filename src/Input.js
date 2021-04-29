@@ -2,8 +2,8 @@ import React from 'react';
 import {useDispatch, useSelector } from 'react-redux';
 import Assistencia from './Assistencia';
 import {Container} from './styles';
-import {MdAdd, MdDone, MdDoneAll, MdList } from 'react-icons/md';
-import {dataCreate} from './store/contagem';
+import {MdAdd, MdDone, MdDoneAll, MdList, MdClear} from 'react-icons/md';
+import {dataCreate, removeAll, retornaTotal} from './store/contagem';
 import { v4 as uuidv4 } from 'uuid';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 
@@ -51,6 +51,14 @@ const Input = () => {
             setModal(new_dados);
             dadosConfirmacao()         
     }
+
+    function handleClickRemoveAll() {    
+        const confirm = window.confirm("Tem certeza que deseja excluir todos?");
+        if(confirm){            
+            dispatch(removeAll())      
+            dispatch(retornaTotal())      
+        }
+    }
     
     function handleClickConfirmados() {
         let dados_ =  dados
@@ -82,7 +90,12 @@ const Input = () => {
     return (
         <Container> 
             <div style={{display:'flex', justifyContent: 'space-between', marginLeft:'2.4rem', paddingBottom:'1.4rem'}}>
-                    <MdAdd style={{cursor:'pointer'}} size={24} onClick={handleClickAdd}/>
+                    <div>
+                        <MdAdd style={{cursor:'pointer'}} size={24} onClick={handleClickAdd}/>
+                        {!!data.length && 
+                            <MdClear style={{cursor:'pointer'}} size={23} onClick={handleClickRemoveAll}/>
+                        }
+                    </div>
                 <div >
                     <MdDone style={{cursor:'pointer'}} size={24} onClick={handleClickNaoConfirmados}/>
                     <MdDoneAll style={{cursor:'pointer'}} size={24} onClick={handleClickConfirmados}/>
@@ -92,7 +105,8 @@ const Input = () => {
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>{modal && modal.title}</Modal.Title>
+                    <Modal.Title>{modal && modal.title}                                      
+                    </Modal.Title>
                 </Modal.Header>        
                     <Modal.Body>
                             {!modal.dados.length && <p>Nenhum dado</p>}

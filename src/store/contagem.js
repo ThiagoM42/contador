@@ -55,11 +55,15 @@ const slice = createSlice({
       let indice = state.dadosObj.map(d=>d.id).indexOf(action.payload.id)   
       state.dadosObj.splice(indice, 1)           
       window.localStorage.setItem("dados", JSON.stringify(state.dadosObj));    
-    }    
+    },
+    removeAll(state){      
+      state.dadosObj = [];  
+      window.localStorage.setItem("dados", JSON.stringify(state.dadosObj));          
+    }        
   },
 });
 
-export const { changeFilters, changeDataName, changeDataQtd, changeDataStatus, retornaTotal, dataCreate, dataRemove, addLocalstorage} = slice.actions;
+export const { changeFilters, changeDataName, changeDataQtd, changeDataStatus, retornaTotal, dataCreate, dataRemove, addLocalstorage, removeAll} = slice.actions;
 
 export default slice.reducer;
 
