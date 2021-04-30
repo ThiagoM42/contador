@@ -26,8 +26,7 @@ const FileList = ({files}) => (
                     strokeWidth={10}
                     value={uploadedFile.progress}              
                     />                    
-                )}
-                {uploadedFile.progress===100 && <strong>Processando</strong>}
+                )}               
             </div>
         </li>          
       ))}

@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('bootstrap/dist/css/bootstrap.min.css');
+
 
 *, html {
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 }
 body{
-  /* background-color: #f0fcfb!important; */
   background-color: #efefef!important;  
 }
 
@@ -17,62 +18,3 @@ h1{
   text-align: center;
 }
 
-.td_bolinha{
-  display: block;
-  height: 38px;
-  width: 100%;
-  display: flex;  
-  justify-content: center;
-  align-content: center;
-}
-
-.bolinha{ 
-  align-self: center;
-  width: 13px !important;
-  height: 13px !important;
-  border-radius: 50%;
-  border:2px solid #000;   
-}
-
-.bolinha.noconfirm{
-  background: rgb(255, 255, 0);
-}
-
-.bolinha.confirm{
-  background: lime;
-}
-/*##################### START POPUP #####################*/
-.popup-content {
-  margin: auto;
-  background: rgb(255, 255, 255);
-  width: 50%;
-  padding: 5px;
-}
-.popup-arrow {
-  color: rgb(255, 255, 255);
-}
-[role='tooltip'].popup-content {
-  width: 200px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
-}
-
-.popup-overlay {
-  background: rgba(0, 0, 0, 0.5);
-}
-[data-popup='tooltip'].popup-overlay {
-  background: transparent;
-}
-
-@media print{
-  .noPrint{
-    display: none;
-  }
-  input{   
-    color:#000;
-    border: none !important;
-    outline: none;    
-  }
-  table{
-    margin-top: 100px;
-  }
-}

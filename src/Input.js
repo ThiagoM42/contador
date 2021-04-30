@@ -30,7 +30,7 @@ const filterDados = ({ contagem }) => {
     //   })
   };
 
-const Input = () => {        
+const Input = ({props}) => {       
     const data = useSelector(filterDados);   
     const dados = useSelector(({contagem})=>contagem.dadosObj)
     const [modal, setModal] = React.useState({"dados":dados.map(d=>d.nome)});
@@ -89,13 +89,13 @@ const Input = () => {
   
     return (
         <Container> 
-            <div style={{display:'flex', justifyContent: 'space-between', marginLeft:'2.4rem', paddingBottom:'1.4rem'}}>
-                    <div>
-                        <MdAdd style={{cursor:'pointer'}} size={24} onClick={handleClickAdd} title="Add participante"/>
-                        {!!data.length && 
-                            <MdClear style={{cursor:'pointer'}} size={23} onClick={handleClickRemoveAll} title="Excluir todos"/>
-                        }
-                    </div>
+            <div>
+                <div>
+                    <MdAdd style={{cursor:'pointer'}} size={24} onClick={handleClickAdd} title="Add participante"/>
+                    {!!data.length && 
+                        <MdClear style={{cursor:'pointer'}} size={23} onClick={handleClickRemoveAll} title="Excluir todos"/>
+                    }
+                </div>
                 <div >
                     <MdDone style={{cursor:'pointer'}} size={24} onClick={handleClickNaoConfirmados} title="Lista de não confirmados"/>
                     <MdDoneAll style={{cursor:'pointer'}} size={24} onClick={handleClickConfirmados} title="Lista  de confirmados"/>

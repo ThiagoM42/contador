@@ -97,6 +97,7 @@ React.useEffect(()=>{
             )}        
           </Card.Body>
       </Card>
+
       <Card>
         <Card.Header>Filtro</Card.Header>
           <Card.Body>
@@ -120,7 +121,7 @@ React.useEffect(()=>{
                     value={value}              
                     onChange={handleChangeStatus}
                   />
-                  {value}
+                  <span>{value}</span>
                 </label>
               ))}        
             </div>  
