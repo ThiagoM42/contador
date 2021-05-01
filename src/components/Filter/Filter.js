@@ -110,7 +110,6 @@ React.useEffect(()=>{
                 placeholder="Pesquisar por nome"
               />  
             </div>  
-
             
             <div className="mt-3">
               <label>Confirmados:</label>
@@ -121,7 +120,7 @@ React.useEffect(()=>{
                     value={value}              
                     onChange={handleChangeStatus}
                   />
-                  <span>{value}</span>
+                  {value}
                 </label>
               ))}        
             </div>  

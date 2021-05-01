@@ -1,6 +1,7 @@
 import React from 'react'
 import {Container, FileInfo, Preview} from './styles';
 import {CircularProgressbar} from 'react-circular-progressbar';
+import {Spinner} from 'react-bootstrap';
 import 'react-circular-progressbar/dist/styles.css';
 
 const FileList = ({files}) => (
@@ -10,23 +11,16 @@ const FileList = ({files}) => (
             <FileInfo>
                 <Preview src={uploadedFile.preview}/>                 
                 <div>
-                    <strong>{uploadedFile.name}</strong>
-                    <span>{uploadedFile.readableSize}
-                        {/* <button onClick={()=>{}} >Excluir</button> */}
-                    </span>
+                    {/* <strong>{uploadedFile.name}</strong> */}
+                    <span className="mx-2">{uploadedFile.readableSize}</span>
                 </div>
             </FileInfo>
-            <div>
-                {!uploadedFile.uploaded && !uploadedFile.error  &&(
-                    <CircularProgressbar
-                    styles={{
-                        root:{width:24},
-                        path:{stroke:'#7159c1'},                    
-                    }}                    
-                    strokeWidth={10}
-                    value={uploadedFile.progress}              
-                    />                    
-                )}               
+            <div>              
+                {uploadedFile.progress===100 && (
+                    <Spinner animation="border" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </Spinner>                     
+                ) }            
             </div>
         </li>          
       ))}
