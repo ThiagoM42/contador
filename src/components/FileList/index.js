@@ -1,6 +1,5 @@
 import React from 'react'
 import {Container, FileInfo, Preview} from './styles';
-import {CircularProgressbar} from 'react-circular-progressbar';
 import {Spinner} from 'react-bootstrap';
 import 'react-circular-progressbar/dist/styles.css';
 
