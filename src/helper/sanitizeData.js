@@ -10,7 +10,7 @@ function sanitizeData(dados){
     let qtd = dado.match(/(\b\d{1,2}\b)/, '$1');    
     // let nome = dado.trim().replace('“','').replace("",'').replace("\"",'').replace("'",'');
     let nome = dado.trim().replace(/[^0-9a-zA-Z]+/, "");
-    dadosObj.push({"id":v4(), nome, "qtd":qtd?parseInt(qtd[0]):0, "status":"Não"});
+    dadosObj.push({"id":v4(), nome, "qtd":qtd?parseInt(qtd[0]):1, "status":"Não"});
   return acc;
   }, {})
   return dadosObj;
