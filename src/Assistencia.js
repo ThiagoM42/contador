@@ -49,16 +49,6 @@ const Assistencia = ({dados}) => {
                 <MdDone size={19} style={{cursor:'pointer'}} title="Não confirmado"/>
                 }
             </Button></td>   
-        <td className={status==="Não"?"noconfirm":"confirm"}>
-            <input 
-                className="py-3"                              
-                name={id} 
-                value={nome} 
-                type="text"
-                onChange={handleChangeNome}    
-                onBlur={handleOnBlurNome}        
-            />
-        </td>        
         <td>
             <input                
                 name={id}
@@ -69,6 +59,16 @@ const Assistencia = ({dados}) => {
                 onChange={handleChangeQtd}  
             />
         </td>
+        <td className={status==="Não"?"noconfirm":"confirm"}>
+            <input 
+                className="py-3"                              
+                name={id} 
+                value={nome} 
+                type="text"
+                onChange={handleChangeNome}    
+                onBlur={handleOnBlurNome}        
+            />
+        </td>        
 
         <td><BsTrash style={{ cursor:'pointer'}} size={18} onClick={()=>handleClickExcluir(id)}/></td>
         </>

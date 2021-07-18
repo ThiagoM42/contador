@@ -134,8 +134,8 @@ const Input = ({props}) => {
                     <thead  style={{marginBottom:'3rem'}}>
                             <tr>                                
                                 <th className="noPrint">Confirmado?</th>
-                                <th>Nome</th>
                                 <th>Qtd</th>
+                                <th>Nome</th>
                                 <th className="noPrint">Exluir?</th>
                             </tr>
                         </thead>
